@@ -30,6 +30,6 @@ pip install -e .
 ## 2. Training
   ```shell
   cd training/
-  pip install -e .
+  python train.py --algo hadt --env bsk -- exp_name train --seed 0
   ```
 

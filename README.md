@@ -1,7 +1,7 @@
 # HADT
  "Heterogeneous Multi-Agent Differential Transformer for Autonomous Earth Observation Satellite Cluster"
   
-  ** Our Scenario Video**: [Can be found here](https://drive.google.com/file/d/18fy9miCLcLgjJE3NyO3sQhaKT5QfPMSi/view?usp=sharing)
+  **Our Scenario Video**: [Can be found here](https://drive.google.com/file/d/18fy9miCLcLgjJE3NyO3sQhaKT5QfPMSi/view?usp=sharing)
 
  This repository is developed based on official implementation of [HARL repository](https://github.com/PKU-MARL/HARL).
 

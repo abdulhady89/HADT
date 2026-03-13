@@ -19,7 +19,7 @@ conda activate harl
 cd HADT
 pip install -e .
 ```
-### Install Basilisk [v2.3.4](https://hanspeterschaub.info/basilisk/index.html)
+### Install [Basilisk](https://hanspeterschaub.info/basilisk/index.html)
 * Get the Basilisk source code frome here: https://github.com/AVSLab/basilisk
 * Follow the Basilisk installation steps: https://avslab.github.io/basilisk/Install.html 
 

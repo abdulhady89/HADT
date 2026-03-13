@@ -5,7 +5,7 @@
 
 ## Realistic Satellite Simulator Environment supported:
 
-- Basilisik with BSK-RL. It is modified from the original version: [Basilisk (BSK-RL)](https://github.com/AVSLab/bsk_rl) and the original version does not work with this implementation.
+- [Basilisik](https://avslab.github.io/basilisk/) with modified BSK-RL version inside this repo harl/envs/bsk/bsk_rl_101. It is modified from the original version: [BSK-RL](https://github.com/AVSLab/bsk_rl) and the original version does not work with this implementation.
 
 ## 1. Installation
 - 

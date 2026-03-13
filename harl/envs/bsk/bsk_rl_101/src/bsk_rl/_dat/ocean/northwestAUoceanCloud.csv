@@ -1,0 +1,6 @@
+"ocean","priority","cloud","lat","lng","countries"
+"Timor_Sea_A","1","0.65","-12.5603","113.8515","Indonesia-Timor Leste-Australia"
+"Timor_Sea_B","1","0.1","-13.3000","116.5505","Indonesia-Timor Leste-Australia"
+"Timor_Sea_C","10","0.05","-12.5603","124.8515","Indonesia-Timor Leste-Australia"
+"Reef_Sea_A","10","0.99","-14.1397"," 150.0563","Indonesia-PNG-Australia"
+"Dummy","1","0.99","-14.1397","-138.0563","others"

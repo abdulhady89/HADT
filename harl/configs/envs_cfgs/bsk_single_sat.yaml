@@ -1,0 +1,33 @@
+key: "single_sat-hard-random_all"
+
+# Satellites
+n_satellites: 1
+n_act_image: 3
+n_obs_image: 3
+
+# Resources params
+battery_capacity: 400
+memory_size: 500000
+baud_rate: 100
+instr_baud_rate: 500
+init_battery_level: 100
+init_memory_percent: 60
+
+# Reward params
+power_reward : True
+battery_cost_scale : 100.0
+data_reward : True
+data_cost_scale : 100.0
+
+# Orbits
+orbit_num: 1.0
+
+# Targets
+uniform_targets: 2000
+randomize_enabled: False
+
+# Penalty
+failure_penalty: -100
+
+# Rendering
+use_render: False

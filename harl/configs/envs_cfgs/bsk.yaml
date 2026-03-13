@@ -1,0 +1,66 @@
+## Environment keywords ("key") format: <scenario-difficulties-randomness> (Example: "het_cluster-easy")
+
+# Available scenario options: 
+  # 1) Homogeneous Cluster = "hmg_cluster" 
+  # 2) Heterogeneous Cluster = "het_cluster"
+  # 3) FLOCK Cluster = "hmg_flock"
+  # 4) Cloud detector sat with 3 opt and 1 sar = "het_cloud_cluster" --> n_satellites, n_act_image, n_obs_image should be 4
+  # 5) Multiple Cluster = "multi_het_cluster"
+
+# Available difficulty level:
+  # 1) Easy = "easy"
+  # 2) Hard = "hard"
+
+# Available randomness factor type:
+  # 1) All resources: "random_res"
+  # 2) Initialization of Battery level: "random_batt"
+  # 3) Initialization of Memory Storage: "random_mem"
+  # 4) Initialization of Reaction Wheels Speed: "random_rw"
+  # 5) Randomness of Attitude control disturbance: "random_dist"
+  # 6) Randomness of All resources + target location and priority: "random_res_n_target"
+
+# key: "het_cloud_cluster-hard-random_res_n_target" # Please follow the keyword format above!
+# key: "multi_het_cluster-hard-random_res"
+key: "het_cluster-hard-random_res"
+
+# Satellites
+n_satellites: 3
+n_act_image: 3
+n_obs_image: 3
+
+# n_satellites: 4
+# n_act_image: 4
+# n_obs_image: 4
+
+n_cluster: 3 # set only while using multi_het_cluster, if 1 it is a single cluster
+
+# Resources params
+battery_capacity: 400
+memory_size: 5000
+baud_rate: 100
+instr_baud_rate: 500
+init_battery_level: 100
+init_memory_percent: 0
+
+# Reward params
+power_reward : True
+battery_cost_scale : 0.1 #10.0
+data_reward : True
+data_cost_scale : 0.1 #0.5
+min_batt_level_penalty : 0.8 # set to None if no min penalty
+
+# Orbits
+orbit_num: 1.0
+
+# Targets
+uniform_targets: 2000
+tgt_randomize_enabled: True
+
+# Penalty
+failure_penalty: -100
+
+# Rendering
+use_render: False
+
+# Obs for transformer policy
+transformer_obs: True

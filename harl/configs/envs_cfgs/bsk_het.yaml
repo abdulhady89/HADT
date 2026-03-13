@@ -1,0 +1,51 @@
+## Environment keywords ("key") format: <scenario-difficulties-randomness> (Example: "het_cluster-easy")
+
+# Available scenario options: 
+  # 1) Homogeneous Cluster = "hmg_cluster" 
+  # 2) Heterogeneous Cluster = "het_cluster"
+
+# Available difficulty level:
+  # 1) Easy = "easy"
+  # 2) Hard = "hard"
+
+# Available randomness factor type:
+  # 1) All resources: "random_all"
+  # 2) Initialization of Battery level: "random_batt"
+  # 3) Initialization of Memory Storage: "random_mem"
+  # 4) Initialization of Reaction Wheels Speed: "random_rw"
+  # 5) Randomness of Attitude control disturbance: "random_dist"
+
+key: "het_cluster-easy" # Please follow the keyword format above!
+
+
+# Satellites
+n_satellites: 3
+n_act_image: 3
+n_obs_image: 3
+
+# Resources params
+battery_capacity: 400
+memory_size: 500000
+baud_rate: 100
+instr_baud_rate: 500
+init_battery_level: 100
+init_memory_percent: 0
+
+# Reward params
+power_reward : True
+battery_cost_scale : 100.0
+data_reward : True
+data_cost_scale : 100.0
+
+# Orbits
+orbit_num: 1.0
+
+# Targets
+uniform_targets: 2000
+randomize_enabled: False
+
+# Penalty
+failure_penalty: -100
+
+# Rendering
+use_render: False

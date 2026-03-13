@@ -1,0 +1,11 @@
+ocean,area,lat,lng,countries
+Bering Sea,4,58,-178,USA-Russia
+North Sea,1,56,3,UK-Norway-Denmark-Germany-Netherlands-Belgium-France
+Baltic Sea,2,58,20,Sweden-Finland-Russia-Estonia-Latvia-Lithuania-Poland-Germany-Denmark
+South China Sea,4,15,115,China-Vietnam-Philippines-Malaysia-Brunei-Taiwan
+Sea of Japan (East Sea),3,40,135,Japan-Russia-North Korea-South Korea
+Arabian Sea,3,15,65,India-Pakistan-Iran-Oman-Yemen-Somalia
+Mediterranean Sea,2,35,18,Spain-France-Italy-Greece-Turkey-Egypt-Algeria-etc.
+Black Sea,1,43,35,Bulgaria-Romania-Ukraine-Russia-Georgia-Turkey
+Red Sea,2,20,40,Egypt-Sudan-Eritrea-Saudi Arabia-Yemen
+Caribbean Sea,2,15,-75,Mexico-Colombia-Venezuela-Cuba-Jamaica-etc.

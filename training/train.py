@@ -29,7 +29,6 @@ def main():
         choices=[
             "bsk",
             "bsk_single_sat",
-            "bsk_het"
         ],
         help="Environment name. Choose from: bsk.",
     )

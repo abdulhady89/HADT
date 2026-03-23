@@ -4,11 +4,11 @@ setup(
     name="harl",
     version="1.0.0",
     author="XXX",
-    description="PyTorch implementation of HADT Algorithms",
+    description="PyTorch implementation of HADT Algorithms in HARL Framework",
     url="",
     packages=find_packages(),
     license="MIT",
-    python_requires="=3.10",
+    python_requires=">=3.10",
     install_requires=[
         "torch>=1.9.0",
         "pyyaml>=5.3.1",

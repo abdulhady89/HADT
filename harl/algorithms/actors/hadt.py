@@ -1,4 +1,4 @@
-"""HAPPO algorithm."""
+"""HADT algorithm."""
 import numpy as np
 import torch
 import torch.nn as nn
@@ -9,7 +9,7 @@ from harl.algorithms.actors.on_policy_base import OnPolicyBase
 
 class HADT(OnPolicyBase):
     def __init__(self, args, obs_space, act_space, device=torch.device("cpu")):
-        """Initialize HAPPO algorithm.
+        """Initialize HADT algorithm.
         Args:
             args: (dict) arguments.
             obs_space: (gym.spaces or list) observation space.

@@ -48,52 +48,10 @@ def get_shape_from_act_space(act_space):
 
 def make_train_env(env_name, seed, n_threads, env_args):
     """Make env for training."""
-    if env_name == "dexhands":
-        from harl.envs.dexhands.dexhands_env import DexHandsEnv
-
-        return DexHandsEnv({"n_threads": n_threads, **env_args})
 
     def get_env_fn(rank):
         def init_env():
-            if env_name == "smac":
-                from harl.envs.smac.StarCraft2_Env import StarCraft2Env
-
-                env = StarCraft2Env(env_args)
-            elif env_name == "smacv2":
-                from harl.envs.smacv2.smacv2_env import SMACv2Env
-
-                env = SMACv2Env(env_args)
-            elif env_name == "mamujoco":
-                from harl.envs.mamujoco.multiagent_mujoco.mujoco_multi import (
-                    MujocoMulti,
-                )
-
-                env = MujocoMulti(env_args=env_args)
-            elif env_name == "pettingzoo_mpe":
-                from harl.envs.pettingzoo_mpe.pettingzoo_mpe_env import (
-                    PettingZooMPEEnv,
-                )
-
-                assert env_args["scenario"] in [
-                    "simple_v2",
-                    "simple_spread_v2",
-                    "simple_reference_v2",
-                    "simple_speaker_listener_v3",
-                ], "only cooperative scenarios in MPE are supported"
-                env = PettingZooMPEEnv(env_args)
-            elif env_name == "gym":
-                from harl.envs.gym.gym_env import GYMEnv
-
-                env = GYMEnv(env_args)
-            elif env_name == "football":
-                from harl.envs.football.football_env import FootballEnv
-
-                env = FootballEnv(env_args)
-            elif env_name == "lag":
-                from harl.envs.lag.lag_env import LAGEnv
-
-                env = LAGEnv(env_args)
-            elif "bsk" in env_name:
+            if "bsk" in env_name:
                 from harl.envs.bsk.clusterbsk_env import ClusterbskEnv # added basilisk
 
                 env = ClusterbskEnv(env_args)
@@ -113,44 +71,10 @@ def make_train_env(env_name, seed, n_threads, env_args):
 
 def make_eval_env(env_name, seed, n_threads, env_args):
     """Make env for evaluation."""
-    if env_name == "dexhands":  # dexhands does not support running multiple instances
-        raise NotImplementedError
 
     def get_env_fn(rank):
         def init_env():
-            if env_name == "smac":
-                from harl.envs.smac.StarCraft2_Env import StarCraft2Env
-
-                env = StarCraft2Env(env_args)
-            elif env_name == "smacv2":
-                from harl.envs.smacv2.smacv2_env import SMACv2Env
-
-                env = SMACv2Env(env_args)
-            elif env_name == "mamujoco":
-                from harl.envs.mamujoco.multiagent_mujoco.mujoco_multi import (
-                    MujocoMulti,
-                )
-
-                env = MujocoMulti(env_args=env_args)
-            elif env_name == "pettingzoo_mpe":
-                from harl.envs.pettingzoo_mpe.pettingzoo_mpe_env import (
-                    PettingZooMPEEnv,
-                )
-
-                env = PettingZooMPEEnv(env_args)
-            elif env_name == "gym":
-                from harl.envs.gym.gym_env import GYMEnv
-
-                env = GYMEnv(env_args)
-            elif env_name == "football":
-                from harl.envs.football.football_env import FootballEnv
-
-                env = FootballEnv(env_args)
-            elif env_name == "lag":
-                from harl.envs.lag.lag_env import LAGEnv
-
-                env = LAGEnv(env_args)
-            elif "bsk" in env_name:
+            if "bsk" in env_name:
                 from harl.envs.bsk.clusterbsk_env import ClusterbskEnv # added basilisk
 
                 env = ClusterbskEnv(env_args)
@@ -174,60 +98,7 @@ def make_render_env(env_name, seed, env_args):
     manual_expand_dims = True  # manually expand the num_of_parallel_envs dimension
     manual_delay = True  # manually delay the rendering by time.sleep()
     env_num = 1  # number of parallel envs
-    if env_name == "smac":
-        from harl.envs.smac.StarCraft2_Env import StarCraft2Env
-
-        env = StarCraft2Env(args=env_args)
-        manual_render = (
-            False  # smac does not support manually calling the render() function
-        )
-        # instead, it use save_replay()
-        manual_delay = False
-        env.seed(seed * 60000)
-    elif env_name == "smacv2":
-        from harl.envs.smacv2.smacv2_env import SMACv2Env
-
-        env = SMACv2Env(args=env_args)
-        manual_render = False
-        manual_delay = False
-        env.seed(seed * 60000)
-    elif env_name == "mamujoco":
-        from harl.envs.mamujoco.multiagent_mujoco.mujoco_multi import MujocoMulti
-
-        env = MujocoMulti(env_args=env_args)
-        env.seed(seed * 60000)
-    elif env_name == "pettingzoo_mpe":
-        from harl.envs.pettingzoo_mpe.pettingzoo_mpe_env import PettingZooMPEEnv
-
-        env = PettingZooMPEEnv({**env_args, "render_mode": "human"})
-        env.seed(seed * 60000)
-    elif env_name == "gym":
-        from harl.envs.gym.gym_env import GYMEnv
-
-        env = GYMEnv(env_args)
-        env.seed(seed * 60000)
-    elif env_name == "football":
-        from harl.envs.football.football_env import FootballEnv
-
-        env = FootballEnv(env_args)
-        manual_render = False  # football renders automatically
-        env.seed(seed * 60000)
-    elif env_name == "dexhands":
-        from harl.envs.dexhands.dexhands_env import DexHandsEnv
-
-        env = DexHandsEnv({"n_threads": 64, **env_args})
-        manual_render = False  # dexhands renders automatically
-        manual_expand_dims = (
-            False  # dexhands uses parallel envs, thus dimension is already expanded
-        )
-        manual_delay = False
-        env_num = 64
-    elif env_name == "lag":
-        from harl.envs.lag.lag_env import LAGEnv
-
-        env = LAGEnv(env_args)
-        env.seed(seed * 60000)
-    elif "bsk" in env_name:
+    if "bsk" in env_name:
         from harl.envs.bsk.clusterbsk_env import ClusterbskEnv
 
         env = ClusterbskEnv(env_args)
@@ -252,23 +123,5 @@ def set_seed(args):
 
 def get_num_agents(env, env_args, envs):
     """Get the number of agents in the environment."""
-    if env == "smac":
-        from harl.envs.smac.smac_maps import get_map_params
-
-        return get_map_params(env_args["map_name"])["n_agents"]
-    elif env == "smacv2":
-        return envs.n_agents
-    elif env == "mamujoco":
-        return envs.n_agents
-    elif env == "pettingzoo_mpe":
-        return envs.n_agents
-    elif env == "gym":
-        return envs.n_agents
-    elif env == "football":
-        return envs.n_agents
-    elif env == "dexhands":
-        return envs.n_agents
-    elif env == "lag":
-        return envs.n_agents
-    elif "bsk" in env:
+    if "bsk" in env:
         return envs.n_agents

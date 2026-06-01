@@ -77,7 +77,7 @@ model:
   # parameters of diagonal Gaussian distribution
   std_y_coef: 0.5
   # use transformer policy or not
-  use_transf_policy: False
+  use_transf_policy: True
   # use diff trans
   use_diff_transformer: True
   #use hidden state

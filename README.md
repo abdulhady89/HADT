@@ -32,6 +32,9 @@ pip install -e .
 ## 2. Training
   ```shell
   cd training/
-  python train.py --algo hadt --env bsk -- exp_name train --seed 0
+  python train.py --algo hadt --env bsk --exp_name train --seed 0
   ```
-
+Change different complexity level "keys" of bsk.yaml environment config as described in our paper:
+* Easy     —> key: "het_cluster-easy"
+* Medium   —> key: "het_cluster-hard"
+* Hard      —> key: "het_cluster-hard-random_res"
